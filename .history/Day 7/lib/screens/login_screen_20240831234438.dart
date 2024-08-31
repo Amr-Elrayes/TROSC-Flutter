@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignupScreen()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>SignupScreen()));
                           },
                           ),
                         ],

@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// ignore: unused_import
 import 'package:ui_design/screens/home_screen.dart';
-import 'package:ui_design/screens/signup_screen.dart';
+import 'package:ui_design/screens/login_screen.dart';
 bool obscureText = true;
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignupScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<SignupScreen> {
   @override
   Widget build(BuildContext context) {
     return  Stack(
       children: [
-        Image(
+        const Image(
           image: AssetImage(
             'assets/images/back_ui.png',
           ),
@@ -25,12 +24,12 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         Center(
           child: Container(
-            width: 320,
-            height: 500,
+            width: 330,
+            height: 520,
             decoration: BoxDecoration(
-              color: Color.fromARGB(255, 217, 223, 204),
+              color: const Color.fromARGB(255, 217, 223, 204),
               borderRadius: BorderRadius.circular(30),
-              boxShadow: [BoxShadow(color: const Color.fromARGB(195, 0, 0, 0),
+              boxShadow: [const BoxShadow(color: Color.fromARGB(195, 0, 0, 0),
               spreadRadius: 12,
               blurRadius: 12,
               offset: Offset(0, 4)),
@@ -48,30 +47,38 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Image.asset("assets/images/logo_ui.png"),
                       Text(
-                        "Sign In",
+                        "Sign Up",
                         style: GoogleFonts.jomolhari(
                           fontSize: 32
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 32,
                       )
                     ],
                   ),
-                  SizedBox(height: 50),
+                  const SizedBox(height: 30),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Name",
+                      hintText: "Amr Elrayes",
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  TextFormField(
+                    decoration: const InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: "Email",
                       hintText: "user@gmail.com",
                     ),
                   ),
-                  SizedBox(height: 60),
+                  const SizedBox(height: 30),
                   TextFormField(
                     keyboardType: TextInputType.visiblePassword,
                     obscureText: obscureText,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: const OutlineInputBorder(),
                       labelText: "Password",
                       suffixIcon: IconButton(
                         onPressed: (){setState(() {
@@ -80,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: Icon(obscureText? Icons.visibility : Icons.visibility_off)),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                     GestureDetector(
                       child: const Align(
                         alignment: Alignment.centerRight,
@@ -92,10 +99,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                       ),
                           onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>HomePage()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>HomePage()));
                           },
                     ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context){
@@ -104,10 +111,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   }, 
                   style: ElevatedButton.styleFrom(
                     fixedSize: const Size(170, 55),
-                    backgroundColor: Color.fromARGB(255, 0, 0, 0),
+                    backgroundColor: const Color.fromARGB(255, 0, 0, 0),
                   ),
                     child: const Text(
-                      'Signin',
+                      'Signup',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
@@ -115,25 +122,25 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Center(
                       child: Row(
                         children: [
                           const Text(
-                            '               Or Create account ',
+                            '                   Have an account ',
                             style: TextStyle(
                             ),
                           ),
                           GestureDetector(
                           child:const Text(
-                            'Sign up',
+                            'Log in',
                             style: TextStyle(
                               fontWeight: FontWeight.w700,
                               
                             ),
                           ),
                           onTap: (){
-                            Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=>SignupScreen()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
                           },
                           ),
                         ],
